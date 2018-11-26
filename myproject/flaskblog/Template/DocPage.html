@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block content %}
+	<head>
+	<style>
+	table, th, td {
+    	border: 1px solid black;
+		border-collapse: collapse;
+	}
+	th,td {
+		padding: 25px;
+	}
+	table{
+		border-spacing: 15px;
+	}
+	table td:nth-child(even) {
+	    background-color: #eee;
+	}
+	table td:nth-child(odd) {
+	   background-color: #fff;
+	}
+	table th {
+	    background-color: black;
+	    color: white;
+	}
+	</style>
+	</head>
+	<body>
+    <h1 style = "color:floralwhite">Results</h1>
+    <div>
+    	<table  style="width:100%">
+    	<tr>
+    	{% for result in results %}
+    		<td>{{ result.username }}</td>
+		{% endfor %}
+		</tr>
+		<tr>
+		{% for result in results %}
+    		<td>{{ result.email }}</td>
+		{% endfor %}
+		</tr>
+		<tr>
+		{% for result in results %}
+    		<td>{{ result.age }}</td>
+		{% endfor %}
+		</tr>
+		<tr>
+		{% for result in results %}
+    		<td>{{ result.height }}</td>
+		{% endfor %}
+		</tr>
+		<tr>
+		{% for result in results %}
+    		<td>{{ result.weight }}</td>
+		{% endfor %}
+		</tr>
+		<tr>
+		{% for result in results %}
+    		<td>{{ result.address }}</td>
+		{% endfor %}
+		</tr>
+		<tr>
+		{% for result in results %}
+    		<td>{{ result.bloodgroup }}</td>
+		{% endfor %}
+		<tr>
+	</table>
+	</div>
+	</body> 
+{% endblock content %}

@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <form method="POST" action="">
+	    {{ form.hidden_tag() }}
+        <fieldset ><!--style = "background-color: lawngreen">-->
+            <legend><font size="30"><strong style = "color:floralwhite">Your info</strong></font></legend>
+            <div>
+		    <strong style = "color:floralwhite">{{ form.username.label }}</strong><!-- <h3>username</h3>-->
+				<br>
+				{% if form.username.errors %}
+					{{ form.username }}
+				<div>
+					{% for error in form.username.errors%}
+						<span style = "color: #EE6309"><em>{{error}}</em></span>
+			 		{% endfor %}
+				</div>
+				{% else %}
+					{{ form.username }}<!-- <input type="text" name = " username"><br>-->
+            	{% endif %}
+	    	</div>
+            <div>
+		    <strong style = "color:floralwhite">{{ form.email.label }}</strong><!-- <h3>email</h3>-->
+				<br>
+				{% if form.email.errors %}
+				{{ form.email }}
+				<div>
+					{% for error in form.email.errors%}
+					 <span style = "color: #EE6309"><em>{{error}}</em></span>
+					 {% endfor %}
+				</div>
+				{% else %}
+				{{ form.email }}<!-- <input type="text" name = " email"><br>-->
+						{% endif %}
+            </div>
+            <div>
+				<strong style = "color:floralwhite">{{ form.password.label }}</strong><!-- <h3>password</h3>-->
+				<br>
+				{% if form.password.errors %}
+				{{ form.password }}
+				<div>
+					{% for error in form.password.errors%}
+					 <span style = "color: #EE6309"><em>{{error}}</em></span>
+					 {% endfor %}
+				</div>
+				{% else %}
+				{{ form.password }}<!-- <input type="password" name = " password"><br>-->
+						{% endif %}
+            </div>
+            <div>
+				<strong style = "color:floralwhite">{{ form.confirm_password.label }}</strong><!-- <h3>confirm_password</h3>-->
+				<br>
+				{% if form.confirm_password.errors %}
+				{{ form.confirm_password }}
+				<div>
+					{% for error in form.confirm_password.errors%}
+					 <span style = "color:#EE6309"><em>{{error}}</em></span>
+					 {% endfor %}
+				</div>
+				{% else %}
+				{{ form.confirm_password }}<!-- <input type="password" name = " confirm_password"><br>-->
+						{% endif %}
+            </div>
+            <p><strong style = "color : white"><font size ="5"> Enter your medical details</font></strong></p>
+            <div>
+            	<strong style = "color:floralwhite">{{ form.age.label }}</strong>
+            	<br>
+            	{% if form.age.errors %}
+            	{{ form.age }}
+            	<div>
+            		{% for error in form.age.errors %}
+            		<span style="color:#EE6309"><em>{{error}}</em></span>
+            		{% endfor %}
+            	</div>
+            	{%else%}
+            	{{ form.age }}
+            	{% endif %}
+            </div>
+            <div>
+            	<strong style = "color:floralwhite">{{ form.gender.label }}</strong>
+            	<br>
+            	{% if form.gender.errors %}
+            	{{ form.gender }}
+            	<div>
+            		{% for error in form.gender.errors %}
+            		<span style="color:#EE6309"><em>{{error}}</em></span>
+            		{% endfor %}
+            	</div>
+            	{%else%}
+            	{{ form.gender }}
+            	{% endif %}
+            </div>
+            <div>
+            	<strong style = "color:floralwhite">{{ form.phone.label }}</strong>
+            	<br>
+            	{% if form.phone.errors %}
+            	{{ form.phone }}
+            	<div>
+            		<span style="color:#EE6309"><em>Invalid phone number</em></span>
+            	</div>
+            	{%else%}
+            	{{ form.phone }}
+            	{% endif %}
+            </div>
+            <div>
+            	<strong style = "color:floralwhite">{{ form.address.label }}</strong>
+            	<br>
+            	{% if form.address.errors %}
+            	{{ form.address }}
+            	<div>
+            		{% for error in form.address.errors %}
+            		<span style="color:#EE6309"><em>{{error}}</em></span>
+            		{% endfor %}
+            	</div>
+            	{%else%}
+            	{{ form.address }}
+            	{% endif %}
+            </div>
+            <div>
+                <strong style = "color:floralwhite">{{ form.height.label }}</strong>
+                <br>
+                {% if form.height.errors %}
+                {{ form.height }}
+                <div>
+                    {% for error in form.height.errors %}
+                    <span style="color:#EE6309"><em>{{error}}</em></span>
+                    {% endfor %}
+                </div>
+                {%else%}
+                {{ form.height }}
+                {% endif %}
+            </div>
+            <div>
+                <strong style = "color:floralwhite">{{ form.weight.label }}</strong>
+                <br>
+                {% if form.weight.errors %}
+                {{ form.weight }}
+                <div>
+                    {% for error in form.weight.errors %}
+                    <span style="color:#EE6309"><em>{{error}}</em></span>
+                    {% endfor %}
+                </div>
+                {%else%}
+                {{ form.weight }}
+                {% endif %}
+            </div>
+            <div>
+                <strong style = "color:floralwhite">{{ form.bloodgroup.label }}</strong>
+                <br>
+                {% if form.bloodgroup.errors %}
+                {{ form.bloodgroup }}
+                <div>
+                    {% for error in form.bloodgroup.errors %}
+                    <span style="color:#EE6309"><em>{{error}}</em></span>
+                    {% endfor %}
+                </div>
+                {%else%}
+                {{ form.bloodgroup }}
+                {% endif %}
+            </div>
+
+        </fieldset>
+        <div>
+		{{ form.submit}}<!-- <input type = "submit" value = "Sign up">-->
+        </div>
+    </form>
+    <div>
+        <small style = "color:floralwhite">
+            Already have an acoount? <button ><a href = {{ url_for('login') }}> SignIn </a></button>
+        </small>
+    </div>
+  </div>
+{% endblock content %}
+

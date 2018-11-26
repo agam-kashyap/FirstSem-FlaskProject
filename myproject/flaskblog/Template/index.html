@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 style = "color:floralwhite">Database Search</h1>
+<h2 style = "color:floralwhite">Welcome Doctor</h2>
+
+
+ 
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.select) }}
+    <p>
+    {{ render_field(form.search) }}
+  </dl>
+  <p><input type=submit value=Search>
+</form>
+
+{% endblock content %}

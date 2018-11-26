@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+        <title>MedInfo - {{ title }}</title>
+    {% else %}
+        <title>MedInfo</title>
+    {% endif %}
+    <style type="text/css">
+    /* Add some padding on document's body to prevent the content
+    to go underneath the header and footer */
+    body{
+	    background-image: url('https://www.pixelstalk.net/wp-content/uploads/images1/Medical-Wallpapers-HD-Free-download.jpg'); background-size : 100%;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;
+        background: #333;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    }
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
+    }
+</style>
+</head>
+
+<body style="background-color: lightblue">
+    <header>
+      <div class = "fixed-header">
+	<div class="container">
+	  <nav>
+	      <a href="/"><span style="color:white;font-weight:bold">Home</span></a>                              
+	      <a href="/about"><span style="color:white;font-weight:bold">About</span></a>
+          {% if current_user.is_authenticated %}
+              <a href="/logout"><span style="color:white;font-weight:bold">Logout</span></a>
+          {% else %}
+    	      <a href="/login"><span style="color:white;font-weight:bold">Login</span></a>
+    	      <a href="/register"><span style="color:white;font-weight:bold">Register</span></a>
+            {% endif %}
+          </nav>
+        </div>
+    </header>
+    <main role="main">
+      <div class="container">
+        <div>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li style = "color : #F54C4C">{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+
+</body>
+</html>
+

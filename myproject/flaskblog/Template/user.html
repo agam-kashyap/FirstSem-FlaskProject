@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+	<head>
+	<style>
+	table, th, td {
+    	border: 1px solid black;
+		border-collapse: collapse;
+	}
+	th,td {
+		padding: 25px;
+	}
+	table{
+		border-spacing: 15px;
+	}
+	table td:nth-child(even) {
+	    background-color: #eee;
+	}
+	table td:nth-child(odd) {
+	   background-color: #fff;
+	}
+	table th {
+	    background-color: black;
+	    color: white;
+	}
+	</style>
+	</head>
+	<body>
+    <h1 style = "color:floralwhite">Welcome {{ current_user.username }}</h1>
+    <p>
+		<table  style="width:70%">
+		  <tr>
+		    <th>Category</th>
+		    <th>Data Stored</th>
+		  </tr>
+		  <tr>
+		  	<td>Email</td>
+		  	<td>{{current_user.email}}</td>
+		  </tr>
+		  <tr>
+		  	<td>Phone</td>
+		  	<td>{{current_user.phone}}</td>
+		  </tr>
+		  <tr>
+		  	<td>Address</td>
+		   	<td>{{current_user.address}}</td>
+		  </tr>
+		  <tr>
+		  	<td>Age</td>
+		  	<td>{{current_user.age}}</td>
+		  </tr>
+		  <tr>
+		  	<td>Gender</td>
+		  	<td>{{current_user.gender}}</td>
+		  </tr>
+		  <tr>
+		  	<td>Weight</td>
+		  	<td>{{current_user.weight}}</td>
+		  </tr>
+		  <tr>
+		  	<td>Height</td>
+		  	<td>{{current_user.height}}</td>
+		  </tr>
+		  <tr>
+		  	<td>Bloodgroup</td>
+		  	<td>{{current_user.bloodgroup}}</td>
+		  </tr>
+    	</table>
+    </p>
+	</body>
+{% endblock content %}
